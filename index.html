@@ -5,6 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        #filter {
+            margin-bottom: 10px;
+        }
+
+        .item {
+            display: block;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background-color: #0056b3;
+        }
+
+        .opacity {
+            opacity: 1 !important;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .filter-badge {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .remove {
+            cursor: pointer;
+            margin-left: 5px;
+            color: red;
+        }
+    </style>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -12,27 +59,79 @@
             "itemListElement": []
         }
         </script>
-    <script type="module" defer src="./js/list.js"></script>
+    <script type="module" defer src="./js/script.js"></script>
 </head>
 
 <body>
-
     <header class="header">
         <div class="header__content container">
-            <div class="header__banner"></div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__item">
+                        <a class="header__link" href="">
+                            Регионы
+                        </a>
+                    </li>
+                    <li class="header__item">
+                        <a class="header__link active" href="">
+                            Приоритеты
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
     <main class="main">
+        <div class="breadcrumb">
+            <div class="breadcrumb__content container">
+                <ul class="breadcrumb__list" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li class="breadcrumb__item" itemprop="itemListElement" itemscope
+                        itemtype="http://schema.org/ListItem">
+                        <a class="breadcrumb__link" target="_blank" href="/" itemprop="item">
+                            <span itemprop="name">Главная</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="breadcrumb__item">
+                        <svg class="breadcrumb__point-svg">
+                            <use xlink:href="./images/svg/sprite.svg#point"></use>
+                        </svg>
+                    </li>
+                    <li class="breadcrumb__item" itemprop="itemListElement" itemscope
+                        itemtype="http://schema.org/ListItem">
+                        <a class="breadcrumb__link active" target="_blank" href="/category/articles/" itemprop="item">
+                            <span itemprop="name">Приоритеты</span>
+                        </a>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <section class="priorities">
+            <div class="priorities__content container">
+                <h1 class="priorities__heading-h1">
+                    Приоритеты
+                </h1>
+                <ul class="priorities__bears" id="imageList">
+                </ul>
+                <div id="filterBadges"></div>
+            </div>
+        </section>
         <section class="achievements">
             <div class="achievements__content container">
-                <ul class="achievements__filter-list">
-                    <li class="achievements__filter-item"></li>
-                </ul>
-                <h1 class="achievements__heading-h1">
-                    Достижения
-                </h1>
-                <ul class="achievements__list" id="myList">
-                </ul>
+                <div class="achievements__filter">
+                    <select id="filter">
+                        <option value="">Приоритеты</option>
+                    </select>
+                    <div id="tags"></div>
+                    <div class="achievements__filter-content">
+                    </div>
+                    <h2 class="achievements__heading-h2">
+                        Достижения
+                    </h2>
+                    <ul class="achievements__list" id="cardsList">
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
