@@ -93,18 +93,22 @@ function filterFunction() {
 
     createOption(dataTag)
 
+    const protect = document.querySelector('.priorities__bears-protect');
+    let protectFlag = false;
+
     filter.addEventListener('change', function (event) {
+        if (!protectFlag) {
+            protect.classList.add('protect-index');
+            protectFlag = true;
+        }
         const change = event.target;
-        // const selectedValue = change.value;
         const selectedOption = change.options[change.selectedIndex];
         const selectedCategoryName = change.options[change.selectedIndex].text;
         const catCategory = selectedOption.dataset.catCategory;
-
         const selectedCategory = catCategory;
         selectedCategories.add(selectedCategory);
         updateDisplay();
         createFilterBadge(selectedCategory, selectedCategoryName);
-
     });
 
     function createFilterBadge(category, name) {
@@ -118,50 +122,57 @@ function filterFunction() {
     filterBadges.addEventListener('click', function (event) {
         if (event.target.classList.contains('remove')) {
             const categoryToRemove = event.target.getAttribute('data-cat-category');
-            console.log(selectedCategories);
             selectedCategories.delete(categoryToRemove);
             updateDisplay();
             event.target.parentElement.remove();
         }
     });
 
-    // Обработка сброса фильтров
-    // filterBadges.addEventListener('DOMSubtreeModified', function () {
-    filterBadges.addEventListener('change', function () {
-        console.log(filterBadges.children.length);
+    let flag = false;
+
+    filterBadges.addEventListener('DOMSubtreeModified', function () {
         if (filterBadges.children.length === 0) {
+            flag = true;
             selectedCategories.clear();
-            updateDisplay();
+            updateDisplay(flag);
+            flag = false;
         }
     });
 
-    function updateDisplay() {
+    function updateDisplay(flag) {
         const images = imageList.querySelectorAll('li');
         const cards = cardsList.querySelectorAll('li');
         const itemsAll = [];
 
         itemsAll.push(images, cards);
 
-        console.log(itemsAll);
-
         itemsAll.forEach((nodeList, index) => {
-            nodeList.forEach((node) => {
-                // Применяем разные условия в зависимости от индекса главного массива
+            nodeList.forEach((node, indexIn) => {
                 if (index === 0) {
                     if (selectedCategories.has(node.getAttribute('data-cat-category'))) {
-                        node.classList.add('opacity');
+                        // node.classList.add('opacity');
+                        console.log(indexIn);
+                        node.style.zIndex = `${56 - indexIn}`;
                     } else {
-                        node.classList.remove('opacity');
+                        // node.classList.remove('opacity');
+                        node.removeAttribute('style');
                         if (!node.classList.contains('opacity')) {
-                            node.style.opacity = '.2';
+                            // node.style.opacity = '.2';
                         }
                     }
+                    if (flag) {
+                        node.style.opacity = '1';
+                    }
                 } else if (index === 1) {
-                    // Условия для второго NodeList
                     if (!selectedCategories.has(node.getAttribute('data-cat-category'))) {
                         node.classList.add('hidden');
                     } else {
                         node.classList.remove('hidden');
+                    }
+                    if (flag) {
+                        node.classList.remove('hidden');
+                        protect.classList.remove('protect-index');
+                        protectFlag = false;
                     }
                 }
             });

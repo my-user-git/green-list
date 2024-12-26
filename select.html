@@ -51,39 +51,31 @@
 </head>
 <body>
 
-<div class="custom-select">
-    <div class="select-selected">Выберите опцию</div>
-    <div class="select-items">
-        <div>Опция 1</div>
-        <div>Опция 2</div>
-        <div>Опция 3</div>
-    </div>
-</div>
 
-<script>
-    // Ваш JavaScript для обработки событий
-    const selected = document.querySelector('.select-selected');
-    const items = document.querySelector('.select-items');
-
-    selected.addEventListener('click', () => {
-        items.style.display = items.style.display === 'block' ? 'none' : 'block';
-    });
-
-    items.querySelectorAll('div').forEach(item => {
-        item.addEventListener('click', (e) => {
-            selected.textContent = e.target.textContent;
-            items.style.display = 'none';
+    <select id="mySelect" multiple>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+    
+    <div id="myDiv">Этот элемент будет изменён</div>
+    
+    <script>
+        var select = document.getElementById("mySelect");
+        var div = document.getElementById("myDiv");
+        var isChanged = false; // Флаг, который отслеживает изменение
+    
+        select.addEventListener("change", function() {
+            if (!isChanged) {
+                // Изменение другого объекта
+                div.style.backgroundColor = "yellow"; // Изменяем цвет фона
+                div.textContent = "Вы сделали выбор!"; // Изменяем текст
+                isChanged = true; // Устанавливаем флаг, чтобы избежать повторного изменения
+            }
         });
-    });
-
-    // Закрытие выпадающего списка при клике вне его
-    document.addEventListener('click', (e) => {
-        if (!selected.contains(e.target) && !items.contains(e.target)) {
-            items.style.display = 'none';
-        }
-    });
-</script>
-
+    </script>
+    
+    
 </body>
 </html>
 

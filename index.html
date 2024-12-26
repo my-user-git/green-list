@@ -6,52 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        #filter {
-            margin-bottom: 10px;
-        }
-
-        .item {
-            display: block;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #007BFF;
-            color: white;
-            border-radius: 5px;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-
-        .tag:hover {
-            background-color: #0056b3;
-        }
-
-        .opacity {
-            opacity: 1 !important;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .filter-badge {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-
-        .remove {
-            cursor: pointer;
-            margin-left: 5px;
-            color: red;
-        }
-    </style>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -113,6 +67,7 @@
                     Приоритеты
                 </h1>
                 <ul class="priorities__bears" id="imageList">
+                    <li class="priorities__bears-protect"></li>
                 </ul>
                 <div id="filterBadges"></div>
             </div>

@@ -58,3 +58,26 @@ input {
     margin: 0 auto;
     padding: 0 30px;
 }
+
+.opacity {
+    opacity: 1 !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.remove {
+    cursor: pointer;
+    margin-left: 5px;
+    color: red;
+}
+
+.filter-badge {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
