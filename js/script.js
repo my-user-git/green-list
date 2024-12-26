@@ -186,15 +186,15 @@ filterFunction();
 
         itemLi.setAttribute('data-cat-category', i);
 
-        itemImg.src = `../images/bears/desktop/hero-bear${i + 1}.png`;
+        itemImg.src = `./images/bears/desktop/hero-bear${i + 1}.png`;
 
         window.addEventListener('resize', () => {
             if (window.innerWidth <= 1200 && window.innerWidth >= 992) {
-                itemSource.srcset = `../images/bears/tablet/hero-tablet-bear${i + 1}.png`;
+                itemSource.srcset = `./images/bears/tablet/hero-tablet-bear${i + 1}.png`;
             } else if (window.innerWidth <= 992 && window.innerWidth >= 768) {
-                itemSource.srcset = `../images/bears/small_tablet/hero-tablet-small-bear${i + 1}.png`;
+                itemSource.srcset = `./images/bears/small_tablet/hero-tablet-small-bear${i + 1}.png`;
             } else if (window.innerWidth <= 768) {
-                itemSource.srcset = `../images/bears/small_tablet/hero-mobile-bear${i + 1}.png`;
+                itemSource.srcset = `./images/bears/small_tablet/hero-mobile-bear${i + 1}.png`;
             }
         });
 

@@ -30,9 +30,9 @@ function dataLocal(tags) {
     let dataTemplate = {};
 
     const dataImg = [
-        '../images/item/image_1.png',
-        '../images/item/image_2.png',
-        '../images/item/image_3.png',
+        './images/item/image_1.png',
+        './images/item/image_2.png',
+        './images/item/image_3.png',
     ]
 
     const dataH3 = [
@@ -48,8 +48,8 @@ function dataLocal(tags) {
     ]
 
     const dataSvg = [
-        '../images/svg/like.svg',
-        '../images/svg/like-lite.svg',
+        './images/svg/like.svg',
+        './images/svg/like-lite.svg',
     ]
 
     for (let i = 0; i < countItems; i++) {
