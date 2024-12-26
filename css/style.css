@@ -179,8 +179,7 @@ input {
   position: relative;
   min-height: 194px;
   background: url("../images/banner-bg.png") no-repeat center center transparent;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
   overflow: hidden;
 }
 .priorities__bears-item {
