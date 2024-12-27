@@ -169,6 +169,7 @@ function filterFunction() {
                     if (flag) {
                         node.classList.remove('hidden');
                         protect.classList.remove('protect-index');
+                        choices();
                         protectFlag = false;
                     }
                 }
@@ -216,7 +217,17 @@ filterFunction();
 
 /* choices */
 
-const element = document.querySelector('#filter');
-const choices = new Choices(element, {
-  searchEnabled: false,
-});
+function choices() {
+
+    const element = document.querySelector('#filter');
+    const choices = new Choices(element, {
+        searchEnabled: false,
+        sorter: function (a, b) {
+            return a.index - b.index;
+        },
+        itemSelectText: '',
+    });
+}
+
+choices()
+

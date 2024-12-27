@@ -351,10 +351,11 @@
 
     &__list {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: flex-start;
-        flex-wrap: nowrap;
-        row-gap: 8px;
+        flex-wrap: wrap;
+        gap: 8px;
 
         &--single {
             font-family: var(--font-MontserratMedium), var(--font-standart);
@@ -371,7 +372,6 @@
             border-radius: 16px;
             box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
             background: #fff;
-            visibility: visible;
         }
 
         & .choices__item {
@@ -384,6 +384,13 @@
             color: var(--dark-32);
             border-radius: 100px;
             background-color: var(--grey-F9);
+            overflow-wrap: break-word;
+            word-break: break-word;
+
+            &--selectable.is-highlighted {
+                color: var(--white);
+                background-color: var(--blue-DC);
+            }
         }
 
         & .choices__list {
