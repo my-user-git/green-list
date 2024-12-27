@@ -14,6 +14,7 @@
   --blue-EF: #00aeef;
   --blue-DC: #0770dc;
   --dark-2B: #2b2b2b;
+  --dark-32: #323232;
   --grey-F9: #EEF3F9;
   --grey-B5: #b5b5b5;
   /* UI */
@@ -385,4 +386,45 @@ input {
   line-height: normal;
   font-size: 14px;
   color: var(--blue-A4);
+}
+
+/* select */
+.choices__placeholder {
+  opacity: 1;
+}
+.choices[data-type*=select-one] {
+  display: inline-flex;
+}
+.choices__inner {
+  display: inline-flex;
+  width: inherit;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: none;
+}
+.choices__list--single {
+  font-family: var(--font-MontserratMedium), var(--font-standart);
+  font-weight: 500;
+  line-height: normal;
+  font-size: 14px;
+  text-align: center;
+  color: var(--dark-32);
+}
+.choices__list--dropdown {
+  width: 340px;
+  visibility: visible;
+  padding: 16px 8px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.choices__list .choices__item {
+  font-family: var(--font-MontserratMedium), var(--font-standart);
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  color: var(--dark-32);
+}
+.choices__list .choices__list {
+  max-height: inherit;
 }/*# sourceMappingURL=style.css.map */

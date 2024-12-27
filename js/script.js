@@ -213,3 +213,10 @@ filterFunction();
     }
 })()
 
+
+/* choices */
+
+const element = document.querySelector('#filter');
+const choices = new Choices(element, {
+  searchEnabled: false,
+});
