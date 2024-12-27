@@ -76,7 +76,6 @@ function appendChildren(element, items) {
 }
 
 function filterFunction() {
-    const imageList = document.getElementById('imageList');
     const filterTags = document.getElementById('filterTags');
     const selectedCategories = new Set();
     const filter = document.getElementById('filter');
@@ -150,14 +149,12 @@ function filterFunction() {
             nodeList.forEach((node, indexIn) => {
                 if (index === 0) {
                     if (selectedCategories.has(node.getAttribute('data-cat-category'))) {
-                        // node.classList.add('opacity');
                         console.log(indexIn);
-                        node.style.zIndex = `${56 - indexIn}`;
+                        // 60 - не стал высчитывать точный индекс перекрытия медведей, взял с запасом  
+                        node.style.zIndex = `${60 - indexIn}`;
                     } else {
-                        // node.classList.remove('opacity');
                         node.removeAttribute('style');
                         if (!node.classList.contains('opacity')) {
-                            // node.style.opacity = '.2';
                         }
                     }
                     if (flag) {
