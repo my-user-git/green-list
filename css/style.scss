@@ -88,9 +88,39 @@
         }
     }
 
+    &__tags {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 8px;
+    }
+
+    &__tag {
+        &-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 4px;
+            font-family: var(--font-MontserratMedium), var(--font-standart);
+            font-weight: 500;
+            font-size: 14px;
+            text-align: center;
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 100px;
+            background-color: var(--blue-DC);
+        }
+
+        &-svg {
+            width: 8px;
+            height: 8px;
+        }
+    }
+
     &__bears {
         position: relative;
         min-height: 194px;
+        margin-bottom: 32px;
         background: url('../images/banner-bg.png') no-repeat center center transparent;
         border-radius: 20px;
         overflow: hidden;
@@ -187,6 +217,17 @@
 /* achievements */
 
 .achievements {
+    &__select {
+        margin-bottom: 64px;
+    }
+
+    &__heading-h2 {
+        margin-bottom: 32px;
+        font-family: var(--font-MontserratSemiBold), var(--font-standart);
+        font-weight: 600;
+        font-size: 20px;
+        color: var(--dark-2B);
+    }
 
     &__list {
         display: grid;

@@ -77,7 +77,7 @@ function appendChildren(element, items) {
 
 function filterFunction() {
     const imageList = document.getElementById('imageList');
-    const filterBadges = document.getElementById('filterBadges');
+    const filterTags = document.getElementById('filterTags');
     const selectedCategories = new Set();
     const filter = document.getElementById('filter');
 
@@ -108,18 +108,18 @@ function filterFunction() {
         const selectedCategory = catCategory;
         selectedCategories.add(selectedCategory);
         updateDisplay();
-        createFilterBadge(selectedCategory, selectedCategoryName);
+        createFilterTag(selectedCategory, selectedCategoryName);
     });
 
-    function createFilterBadge(category, name) {
-        const badge = document.createElement('div');
-        badge.classList.add('filter-badge');
-        badge.textContent = name;
-        badge.innerHTML += `<span class="remove" data-cat-category="${category}">&times;</span>`;
-        filterBadges.appendChild(badge);
+    function createFilterTag(category, name) {
+        const tagList = document.createElement('li');
+        tagList.classList.add('priorities__tag-item');
+        tagList.textContent = name;
+        tagList.innerHTML += `<span class="remove" data-cat-category="${category}">&times;</span>`;
+        filterTags.appendChild(tagList);
     }
 
-    filterBadges.addEventListener('click', function (event) {
+    filterTags.addEventListener('click', function (event) {
         if (event.target.classList.contains('remove')) {
             const categoryToRemove = event.target.getAttribute('data-cat-category');
             selectedCategories.delete(categoryToRemove);
@@ -130,8 +130,8 @@ function filterFunction() {
 
     let flag = false;
 
-    filterBadges.addEventListener('DOMSubtreeModified', function () {
-        if (filterBadges.children.length === 0) {
+    filterTags.addEventListener('DOMSubtreeModified', function () {
+        if (filterTags.children.length === 0) {
             flag = true;
             selectedCategories.clear();
             updateDisplay(flag);

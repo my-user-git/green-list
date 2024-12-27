@@ -116,17 +116,6 @@ input {
 
 .remove {
   cursor: pointer;
-  margin-left: 5px;
-  color: red;
-}
-
-.filter-badge {
-  display: inline-block;
-  background: #007bff;
-  color: white;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 5px;
 }
 
 /* header */
@@ -198,9 +187,36 @@ input {
   font-size: 32px;
   color: var(--dark-2B);
 }
+.priorities__tags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+.priorities__tag-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+  font-family: var(--font-MontserratMedium), var(--font-standart);
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 100px;
+  background-color: var(--blue-DC);
+}
+.priorities__tag-svg {
+  width: 8px;
+  height: 8px;
+}
 .priorities__bears {
   position: relative;
   min-height: 194px;
+  margin-bottom: 32px;
   background: url("../images/banner-bg.png") no-repeat center center transparent;
   border-radius: 20px;
   overflow: hidden;
@@ -274,6 +290,16 @@ input {
 }
 
 /* achievements */
+.achievements__select {
+  margin-bottom: 64px;
+}
+.achievements__heading-h2 {
+  margin-bottom: 32px;
+  font-family: var(--font-MontserratSemiBold), var(--font-standart);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--dark-2B);
+}
 .achievements__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
