@@ -291,6 +291,13 @@ input {
 }
 
 /* achievements */
+.achievements__label {
+  font-family: var(--font-MontserratMedium), var(--font-standart);
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  color: var(--dark-32);
+}
 .achievements__select {
   margin-bottom: 64px;
 }

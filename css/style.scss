@@ -217,6 +217,14 @@
 /* achievements */
 
 .achievements {
+    &__label {
+        font-family: var(--font-MontserratMedium), var(--font-standart);
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        color: var(--dark-32);
+    }
+
     &__select {
         margin-bottom: 64px;
     }
